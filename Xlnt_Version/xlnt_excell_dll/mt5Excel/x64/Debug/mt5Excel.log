@@ -1,0 +1,6 @@
+﻿  pch.cpp
+  dllmain.cpp
+  ExcelHandler.cpp
+  Generating Code...
+     Creating library C:\Users\GEEK\Desktop\vscode\mt5ToExcell_Dll\Xlnt_Version\xlnt_excell_dll\x64\Debug\mt5Excel.lib and object C:\Users\GEEK\Desktop\vscode\mt5ToExcell_Dll\Xlnt_Version\xlnt_excell_dll\x64\Debug\mt5Excel.exp
+  mt5Excel.vcxproj -> C:\Users\GEEK\Desktop\vscode\mt5ToExcell_Dll\Xlnt_Version\xlnt_excell_dll\x64\Debug\mt5Excel.dll

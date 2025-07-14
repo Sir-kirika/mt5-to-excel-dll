@@ -1,0 +1,6 @@
+C:\Users\GEEK\Desktop\vscode\mt5ToExcell_Dll\mt5ExcelInterop\mt5ExcelInterop\bin\Debug\mt5ExcelInterop.dll
+C:\Users\GEEK\Desktop\vscode\mt5ToExcell_Dll\mt5ExcelInterop\mt5ExcelInterop\bin\Debug\mt5ExcelInterop.pdb
+C:\Users\GEEK\Desktop\vscode\mt5ToExcell_Dll\mt5ExcelInterop\mt5ExcelInterop\obj\Debug\mt5ExcelInterop.csproj.AssemblyReference.cache
+C:\Users\GEEK\Desktop\vscode\mt5ToExcell_Dll\mt5ExcelInterop\mt5ExcelInterop\obj\Debug\mt5ExcelInterop.csproj.CoreCompileInputs.cache
+C:\Users\GEEK\Desktop\vscode\mt5ToExcell_Dll\mt5ExcelInterop\mt5ExcelInterop\obj\Debug\mt5ExcelInterop.dll
+C:\Users\GEEK\Desktop\vscode\mt5ToExcell_Dll\mt5ExcelInterop\mt5ExcelInterop\obj\Debug\mt5ExcelInterop.pdb
