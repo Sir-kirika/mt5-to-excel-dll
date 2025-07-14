@@ -47,12 +47,17 @@ This repo includes **two different libraries** for exporting MT5 data to Excel:
 
 ## 📦 Technologies Used
 
+
+- [MS.OFF.INTEROP.EXCEL.DLL](https://www.dll-files.com/microsoft.office.interop.excel.dll.html) 
+- [xlnt.dll](https://www.dllme.com/dll/files/xlnt)
+- [MetaTrader 5 Documentation](https://www.mql5.com/en/docs)
+
 | Tool / Language | Purpose |
 |-----------------|---------|
-| **C# (.NET Framework)** | Native DLL logic |
-| **[NanoXLSX](https://github.com/ricoSuter/NanoXLSX)** | Write Excel `.xlsx` files (no Excel needed) |
-| **Excel Interop** | Excel automation (slow but full feature) |
-| **[DllExport](https://github.com/3F/DllExport)** | Export C# methods to MQL5 |
+| **C#/C++ (.NET Framework)** | Native DLL logic |
+| **[NanoXLSX](https://www.dllme.com/dll/files/xlnt)** | Write Excel `.xlsx` files (no Excel needed) |
+| **[Excel Interop](https://www.dll-files.com/microsoft.office.interop.excel.dll.html)** | Excel automation (slow but full feature) |
+| **[DllExport]** | Export C# methods to MQL5 |
 | **MQL5 (MetaTrader 5)** | Calling the DLL |
 
 ---
@@ -189,9 +194,9 @@ mt5-to-excel-dll/
 
 ## 🔗 Related Projects and Resources
 
-- [NanoXLSX](https://github.com/ricoSuter/NanoXLSX)
-- [DllExport by 3F](https://github.com/3F/DllExport)
-- [MetaTrader 5 Documentation](https://www.metatrader5.com/en/terminal/help)
+- [MS.OFF.INTEROP.EXCEL.DLL](https://www.dll-files.com/microsoft.office.interop.excel.dll.html) 
+- [xlnt.dll](https://www.dllme.com/dll/files/xlnt)
+- [MetaTrader 5 Documentation](https://www.mql5.com/en/docs)
 
 ---
 
