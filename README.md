@@ -87,7 +87,8 @@ void OnStart()
         Print("No rows to read.");
     }
 }
-
+```
+```mql5
 //Example 2: Does not require Excell installed limited to r/w
 //
 #import "mt5Excel.dll"
