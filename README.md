@@ -1,22 +1,47 @@
 
 # 📊 Export MT5 (MetaTrader 5) Data to Excel Using a C# DLL
 
-This project demonstrates how to export real-time or historical data from **MetaTrader 5 (MT5)** to a `.xlsx` **Excel file** using a **custom C# DLL** and the lightweight `NanoXLSX` library — **without needing to install Excel or use COM automation**.
+This project demonstrates how to export real-time or historical data from **MetaTrader 5 (MT5)** to a `.xlsx` **Excel file** using a **custom C# DLL** — with two options:
+- Using **NanoXLSX** (lightweight and fast)
+- Using **Excel Interop** (slower but with full Excel features like auto-fill and formulas)
 
-✅ **No Python required**  
-✅ **No Excel installation needed**  
+✅ **Supports both Interop and non-Interop modes**  
 ✅ **Works with MQL5 `import` and allows low-latency data writing**  
-✅ **100% offline and portable**
+✅ **100% offline and portable (NanoXLSX version)**
+
+---
+
+## ⚠️ Two Versions: Interop vs NanoXLSX (xlint)
+
+This repo includes **two different libraries** for exporting MT5 data to Excel:
+
+### 1. **Excel Interop Version** (Slower but Full Excel Features)
+- Uses `Microsoft.Office.Interop.Excel`
+- Opens Excel in the background
+- Supports full Excel features like:
+  - Auto-fill
+  - Native formulas (e.g., `=SUM(A1:A10)`)
+  - Formatting and more
+- ✅ Use this if you need full Excel functionality
+- ❌ Downside: **Slower and requires Excel installed**
+
+### 2. **NanoXLSX (xlint) Version** (Faster and Portable)
+- Uses the lightweight `NanoXLSX` library
+- Writes `.xlsx` files without needing Excel
+- ⚡ Fast, portable, and Excel-independent
+- ❌ Excel-specific functions like auto-fill, formulas will not work
+
+> 👉 Choose based on your needs: **features (Interop)** vs **speed (NanoXLSX)**
 
 ---
 
 ## 🔧 Features
 
-- 📁 Write to `.xlsx` files without opening Excel
-- 🧩 Exported DLL functions callable directly from MQL5
-- ⚡ Fast execution: avoids COM latency or subprocess overhead
-- 🧪 Includes a working MT5 script for testing
-- 💼 Useful for trading logs, backtesting, and data collection
+- 📁 Write to `.xlsx` files from MetaTrader 5
+- 🧩 Exported DLL functions callable from MQL5
+- ⚡ Low-latency function calls (no subprocesses)
+- 🧪 Includes working MQL5 test script
+- 💼 Useful for trade logging, backtests, or analytics
 
 ---
 
@@ -25,22 +50,26 @@ This project demonstrates how to export real-time or historical data from **Meta
 | Tool / Language | Purpose |
 |-----------------|---------|
 | **C# (.NET Framework)** | Native DLL logic |
-| **[NanoXLSX](https://github.com/ricoSuter/NanoXLSX)** | Write Excel `.xlsx` files |
-| **[DllExport](https://github.com/3F/DllExport)** | Expose C# methods to MQL5 |
-| **MQL5 (MetaTrader 5)** | Calling the DLL from expert/script/indicator |
+| **[NanoXLSX](https://github.com/ricoSuter/NanoXLSX)** | Write Excel `.xlsx` files (no Excel needed) |
+| **Excel Interop** | Excel automation (slow but full feature) |
+| **[DllExport](https://github.com/3F/DllExport)** | Export C# methods to MQL5 |
+| **MQL5 (MetaTrader 5)** | Calling the DLL |
 
 ---
 
 ## 🧠 How It Works
 
 1. A C# DLL is compiled with `DllExport` to expose native functions.
-2. The DLL uses `NanoXLSX` to write values to specified Excel cells.
+2. Two options:
+   - **NanoXLSX version** writes Excel files directly
+   - **Interop version** launches Excel in the background
 3. MQL5 imports the DLL functions using `import`.
-4. MT5 calls the DLL with parameters like file path, sheet name, cell, and value.
+4. You call the DLL with file path, sheet, cell, and value.
 
 ---
 
 ## 🚀 Example MQL5 Usage
+
 
 
 ```mql5
@@ -134,62 +163,56 @@ void OnStart()
 }
 ```
 
+---
+
 ## 📂 Project Structure
 
 ```bash
 mt5-to-excel-dll/
-├── ExcelExporterDll/       # ✅ C# DLL with exported functions (usable by MT5)
-├── ExportToExcel/          # 🔬 Console app for testing NanoXLSX (not used in MT5)
-├── ExcelTester.mq5         # 🧪 MQL5 script to test the DLL
+├── ExcelExporterDll/       # ✅ DLL with NanoXLSX (use this for speed)
+├── ExportToExcel/          # 🐢 Interop version (Excel automation)
+├── ExcelTester.mq5         # 🧪 MQL5 test script
 ```
 
-> 🔥 Use `ExcelExporterDll.dll` from MetaTrader. `ExportToExcel` is for standalone testing only.
+> 🔥 Use `ExcelExporterDll.dll` in your MQL5 project. Interop version is optional for full Excel logic.
 
 ---
 
 ## 🔨 Build Instructions
-
-1. Open `ExcelExporterDll` in Visual Studio.
+### NB// you can use the dll as is, but if you want to modify/improve it follow the below steps:
+1. Open `mt5ExcelInterop.sln` or `xlnt_excell_dll.sln` in Visual Studio.
 2. Install `DllExport` (via NuGet or [manual setup](https://github.com/3F/DllExport)).
-3. Set build target to **x64**, **Release**, and **.NET Framework 4.7+**.
-4. Compile → use the resulting `.dll` in your MQL5 script.
+3. Build as **x64**(mt5) or **x86**(mt4), **Release**, and **.NET Framework 4.+**
+4. Compile → use resulting `.dll` in your MQL5 project.
 
 ---
 
 ## 🔗 Related Projects and Resources
 
-- [NanoXLSX Library](https://github.com/ricoSuter/NanoXLSX)
-- [DllExport (by 3F)](https://github.com/3F/DllExport)
+- [NanoXLSX](https://github.com/ricoSuter/NanoXLSX)
+- [DllExport by 3F](https://github.com/3F/DllExport)
 - [MetaTrader 5 Documentation](https://www.metatrader5.com/en/terminal/help)
 
 ---
 
 ## 💬 Questions or Suggestions?
 
-Feel free to open an [issue](https://github.com/Sir-kirika/mt5-to-excel-dll/issues) or create a pull request if you have improvements or questions.
+Open an [issue](https://github.com/Sir-kirika/mt5-to-excel-dll/issues) or send a pull request.
 
 ---
 
 ## 📢 Spread the Word!
 
-If this project helped you, give it a ⭐ star, share it on forums like [MQL5 Community](https://www.mql5.com/en/forum) or [Reddit](https://reddit.com/r/Forex), or fork it to expand functionality.
+If this helped you:
+- ⭐ Star the repo
+- 🗣️ Share it on MQL5.com forums or Reddit
+- 🔁 Fork and improve it
 
 ---
 
 ## 📛 License
 
-This project is open-source and free to use. See the `LICENSE` file for more details.
+This project is open-source.
 
 ---
 
-## 📍 Suggested Repository Name and Topics
-
-### ✅ Rename Repo to:
-```
-mt5-to-excel-dll
-```
-
-### ✅ Suggested GitHub Topics:
-```
-mql5 mt5 excel dll csharp unmanaged-exports nanoxlsx export-to-excel
-```
