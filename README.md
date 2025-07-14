@@ -4,6 +4,7 @@ Example 1: This runs Excell in bg meaning Excell must be installed in the machin
     
 //
 //    
+
 //#import "mt5ExcelInterop.dll"
 //   bool WriteToXlsx(const char &filename[], const char &sheetName[], const char &data[]);
 //   int ReadRowCount(const char &filename[], const char &sheetName[]);
